@@ -24,7 +24,7 @@ function App() {
     return <Loading />;
   }
 
-  const { dates, duties, title } = people[index];
+  const { company, dates, duties, title } = people[index];
 
   return (
     <div className="root">
