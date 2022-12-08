@@ -1,18 +1,38 @@
+import { useState, useContext, useEffect } from "react";
+
+import { add, remove } from "../../reducers";
+import { CartContext, CartDispatchContext } from "../../contexts";
+import { Product } from "../../models";
+
 import {
   AddButton,
   SubTitle,
   TextContainer,
   Title,
   Wrapper,
-} from './ProductCard.styled';
+} from "./ProductCard.styled";
 
-import { Product } from '../../models';
+export const ProductCard = (item: Product) => {
+  const cart = useContext(CartContext);
+  const dispatch = useContext(CartDispatchContext);
 
-export const ProductCard = ({ name, imageUrl, price }: Product) => {
+  const { id, name, imageUrl, price } = item;
+
+  function checkCart(id: number) {
+    return cart.some((item: Product) => item.id === id);
+  }
+
   return (
     <Wrapper background={imageUrl}>
-      <AddButton isInCart={false} onClick={() => console.log('Implement Me')}>
-        <p>+</p>
+      <AddButton
+        isInCart={checkCart(id)}
+        onClick={() => {
+          checkCart(id)
+            ? dispatch(remove({ ...item }))
+            : dispatch(add({ ...item }));
+        }}
+      >
+        <p>{checkCart(id) ? "−" : "+"}</p>
       </AddButton>
       <TextContainer>
         <Title>{name}</Title>
