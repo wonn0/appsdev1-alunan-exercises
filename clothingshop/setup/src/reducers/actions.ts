@@ -19,3 +19,23 @@ export const remove = (product: Product): CartAction => ({
   type: CartActionType.REMOVE,
   payload: product,
 });
+
+export enum WishlistActionType {
+  ADD = "add",
+  REMOVE = "remove",
+}
+
+export type WishlistAction = {
+  type: WishlistActionType;
+  payload: Product;
+}
+
+export const addWishlist = (product: Product): WishlistAction => ({
+  type: WishlistActionType.ADD,
+  payload: product,
+});
+
+export const removeWishlist = (product: Product): WishlistAction => ({
+  type: WishlistActionType.REMOVE,
+  payload: product,
+});

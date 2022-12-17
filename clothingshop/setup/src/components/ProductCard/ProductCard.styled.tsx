@@ -20,7 +20,12 @@ export const Wrapper = styled.div<WrapperProps>`
   background-size: 300px;
   overflow: hidden;
   position: relative;
-`;
+`;''
+
+export const ButtonWrapper = styled.div<WrapperProps>`
+  display: flex;
+  flex-direction: "row";
+`;''
 
 export const AddButton = styled.div<AddButtonProps>`
   position: absolute;
@@ -28,6 +33,32 @@ export const AddButton = styled.div<AddButtonProps>`
   justify-content: center;
   align-items: center;
   top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: ${(props) => (props.isInCart ? '#E55336' : '#60c95d')};
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+
+  :hover {
+    transform: scale(1.2);
+    transition: 1s;
+  }
+
+  p {
+    font-size: 20px;
+    margin: 0;
+    color: white;
+  }
+`;
+
+export const WishlistButton = styled.div<AddButtonProps>`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 60px;
   right: 20px;
   width: 20px;
   height: 20px;
@@ -68,6 +99,14 @@ export const Title = styled.p`
 export const SubTitle = styled.p`
   font-weight: normal;
   font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+`;
+
+export const Icon = styled.p`
+  align-self: center;
+  font-weight: normal;
+  font-size: 5px;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
 `;
