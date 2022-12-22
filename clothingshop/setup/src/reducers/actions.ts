@@ -3,6 +3,7 @@ import { Product } from "../models";
 export enum CartActionType {
   ADD = "add",
   REMOVE = "remove",
+  UPDATE = "update"
 }
 
 export type CartAction = {
@@ -17,6 +18,11 @@ export const add = (product: Product): CartAction => ({
 
 export const remove = (product: Product): CartAction => ({
   type: CartActionType.REMOVE,
+  payload: product,
+});
+
+export const update = (product: Product): CartAction => ({
+  type: CartActionType.UPDATE,
   payload: product,
 });
 

@@ -11,7 +11,7 @@ export const Wishlist = () => {
 
   return (
     <>
-      <Title>My Wishlist</Title>
+      <Title>{!wishlist.length ? 'Your Wishlist is Empty' :  'Your Wishlist'}</Title>
       <WishlistWrapper>
         {wishlist.map((data, index) => (
           <ProductCard key={index} {...data} />
