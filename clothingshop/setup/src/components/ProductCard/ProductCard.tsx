@@ -26,7 +26,7 @@ export const ProductCard = (item: Product) => {
   const cartDispatch = useContext(CartDispatchContext);
   const wishlistDispatch = useContext(WishlistDispatchContext);
 
-  const { id, name, imageUrl, price } = item;
+  const { id, name, imageUrl, price, quantity } = item;
 
   function checkCart(id: number) {
     return cart.some((item: Product) => item.id === id);
